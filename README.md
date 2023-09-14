@@ -107,4 +107,7 @@ En la parte intermedia de la pieza se encuentran 5 varillas, una en la mitad, do
 
   ![image](https://github.com/kaolof/wro2023-adagroup/assets/143504227/5f89377c-6a0a-4827-95d9-5083a895c123)
 
+
+  **Nota:** Es importante aclarar que para efectos de esta competencia se elimino el sensor RGB y la cámara
+
   
