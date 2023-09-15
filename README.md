@@ -76,6 +76,39 @@ En la parte intermedia de la pieza se encuentran 5 varillas, una en la mitad, do
 
 
 #### 2.1 Sensores
+
+   El modelo desarrollado se encuentra compuesto por sensores RGB tipo quad bayer, y un sensor ultrasónico tipo 2, desarrollados por makeblock del kit “mBot Neo 2”.
+   
+
+Estos sensores brindan al Cybercooper la capacidad de detectar los obstáculos que se vaya encontrando en el camino, y si este llega a ser modificado anteriormente, para que analice por donde tiene que ir, los sensores tienen la habilidad de ubicar las marcas o señales que se le indiquen al modelo para tomar acción.
+
+
+ El sensor RGB se define por la identificación de colores dentro del rango RGB, en este caso, el sensor utilizado, aparte de tener dicha habilidad, posee la capacidad de brindar la luz necesaria para iluminar el modelo en general, además de que esta luz ayuda en cierto porcentaje con la detección de colores en el caso de que haya interferencia de la luz ambiental, sea existente o no.
+ 
+
+  El sensor ultrasónico se especializa en la detección de obstáculos utilizando un sonido con rangos ultrasónicos, los cuales no son perceptibles para el ser humano, este puede calcular la distancia casi exacta entre un objeto y el dispositivo o modelo portador del sensor ultrasónico. En el caso del sensor ultrasónico tipo 2 desarrollado por makeblock, es utilizado para la detección de obstáculos a poca distancia, de 3 a 300cm, posibilitando la detección de los objetos más cercanos, a un lapso de 10 microsegundos de reacción.
+
+  ![image](https://github.com/kaolof/wro2023-adagroup/assets/143504227/16a67437-9cd5-4ddc-9fdc-59542a1b5961)
+![image](https://github.com/kaolof/wro2023-adagroup/assets/143504227/f5505807-02ca-49e2-abdf-300b3ae4e714)
+
+
+      
+   Aplicando estos sensores al modelo, hace que tenga la posibilidad de dar los datos necesarios e identificar los obstáculos o indicaciones presentes en múltiples casos de transporte o movimientos presentes.
+   
+
+   La ubicación de los sensores están situados a conexión con el tren delantero, más exacto, ubicados en el eje de dirección, debido a dos factores:
+   
+
+ La distancia de 5-15mm que necesita el sensor RGB para una detección precisa.
+ En ángulo de inclinación hacia arriba que posee el sensor ultrasónico en su máxima detección, para una mejor detección de objetos, su ubicación que se localiza en la parte inferior, hace tener una mejor reacción.
+ 
+
+   Por otro lado, también se encuentran los sensores aplicados al CyberPi, que ayudan con la detección de carga, y el sensor de luz integrado, además de otros sensores que detectan la carga del código presente.
+
+   ![image](https://github.com/kaolof/wro2023-adagroup/assets/143504227/45f0be05-6d5c-4cc0-9bb1-b493846bf838)
+
+   
+
 #### 2.2 Control de Velocidad - Dirección
   
   
@@ -94,11 +127,28 @@ En la parte intermedia de la pieza se encuentran 5 varillas, una en la mitad, do
 
 
 6 RPM para ejecución hacia la derecha
+
+
 6 RPM para la ejecución hacia la izquierda
-4.5 RPM para enderezar viniendo de la derecha
+
+
+5 RPM para enderezar viniendo de la derecha
+
+
 5 RPM para enderezar viniendo de la izquierda
 
+
   Por otro lado, también este es controlado por el mismo CyberPi, para hacer los cambios de dirección, parándose el sistema de propulsión, activándose el sistema de dirección, y después de girar de nuevo volver a ejecutarse.
+
+   Además de que en tal dicho caso de que se utilice por completo el sensor ultrasónico esta dirección es accionada en base a la distancia que detecta el sensor establecido, en el rango de 75cm de distancia hacia el muro, esto puede variar de manera leve, debido a la velocidad de respuesta del sensor.    
+
+   Aplicando esto en el ámbito físico, se expresaría un movimiento rectilíneo uniformemente variado cuando este anuló el giro anterior siendo el punto de partida hasta el punto dónde comienza a girar de nuevo, variando los valores depende de que en que momento detecte la distancia necesaria para el cambio de dirección (cuando el sensor ultrasónico detecte algo a menos de 75cm), variando la distancia.
+
+   Además de que en en el primer movimiento este presenta al final una desaceleración mientras que en el resto de los movimientos este presenta una aceleración al inicio y una desaceleración al final. 
+
+   Cuando este movimiento es finalizado, este continúa con otro movimiento siendo el movimiento circular uniforme, teniendo una velocidad constante, por lo tanto la aceleración tangencial sería 0, y todo esto expresado en base a conocimientos sobre cinemática, despreciando factores de relieve y fuerzas de fricción que puedan estar presentes, a continuación los cálculos pertinentes del movimiento.
+
+   Hay que tener en cuenta que las medidas son aproximadas, debido a la irregularidades en la pista que se puedan presentar.
 
 #### 2.3 Diagrama de Cableado
   
@@ -110,4 +160,4 @@ En la parte intermedia de la pieza se encuentran 5 varillas, una en la mitad, do
 
   **Nota:** Es importante aclarar que para efectos de la nacional se elimino el sensor RGB y la cámara
 
-  
+  Para continuar leyendo dirijase a /other/diario de ingenieria.pdf
